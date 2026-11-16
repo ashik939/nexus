@@ -1,15 +1,260 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Website</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NEXUS 0 — THE INNOVATION ARENA</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0B0D;--red:#C8102E;--w:#fff;--ch:#242428;--lg:#E5E5E5;--mut:#9a9aa2;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--bg);color:var(--lg);font:400 16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Anton,Impact,sans-serif;font-weight:400;color:var(--w);text-transform:uppercase;line-height:1;margin:0}
+h2{font-size:clamp(34px,5.5vw,64px)}h3{font-size:24px;letter-spacing:.01em}
+p{margin:0 0 12px}.r{color:var(--red)}
+a{color:inherit}
+#glow{position:fixed;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.22),transparent 65%);pointer-events:none;transform:translate(-50%,-50%);z-index:0;left:50%;top:30%}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;margin:12px auto;width:min(1180px,calc(100% - 24px));display:flex;align-items:center;gap:14px;padding:10px 14px 10px 18px;background:rgba(11,11,13,.82);backdrop-filter:blur(12px);border:1px solid #2c2c31;border-radius:999px}
+.logo{font-family:Anton;font-size:22px;color:#fff;text-decoration:none;white-space:nowrap}.logo i{color:var(--red);font-style:normal}
+.links{display:flex;gap:16px;margin-left:auto;font-size:13px}.links a{text-decoration:none;color:var(--lg);opacity:.8;transition:.2s}.links a:hover,.links a.on{opacity:1;color:#fff;box-shadow:0 2px 0 var(--red)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--red);color:#fff;font-weight:600;text-decoration:none;border:1px solid var(--red);cursor:pointer;font:600 14px Inter;transition:.25s}
+.btn:hover{box-shadow:0 0 28px rgba(200,16,46,.55);transform:translateY(-2px)}
+.btn.o{background:transparent;border-color:#4a4a50}.btn.o:hover{border-color:var(--red);box-shadow:none}
+nav .btn{padding:9px 16px}
+#burger{display:none;background:none;border:0;color:#fff;font-size:26px;margin-left:auto}
+section{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:90px 20px 20px}
+.sec{display:grid;grid-template-columns:56px 1fr;gap:20px}
+.side{writing-mode:vertical-rl;transform:rotate(180deg);font-family:Anton;font-size:28px;color:#fff;text-transform:uppercase;display:flex;align-items:center;gap:12px;border-right:0}
+.side::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--red)}
+.card{background:linear-gradient(160deg,#18181b,#101012);border:1px solid #2a2a2f;border-radius:18px;padding:24px;transition:.3s}
+.card:hover{border-color:rgba(200,16,46,.6);box-shadow:0 0 40px rgba(200,16,46,.12)}
+.card.red{background:var(--red);border-color:var(--red);color:#fff}.card.red h3,.card.red p{color:#fff}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.tag{display:inline-block;font-size:12px;padding:4px 12px;border:1px solid var(--red);color:#fff;border-radius:999px;margin-bottom:14px}
+.mut{color:var(--mut)}
+/* hero */
+#home{min-height:100vh;padding-top:130px;display:flex;flex-direction:column;justify-content:center}
+.orb{position:absolute;right:2%;top:90px;width:min(46vw,520px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e2203d,var(--red) 55%,#7d0a1d);z-index:-1;animation:float 9s ease-in-out infinite}
+.orb::before,.orb::after{content:"";position:absolute;inset:-6%;border:1px solid rgba(200,16,46,.5);border-radius:50%;animation:spin 22s linear infinite;border-top-color:transparent}
+.orb::after{inset:-14%;animation-duration:34s;animation-direction:reverse;opacity:.5}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes float{50%{transform:translateY(-18px)}}
+h1{font-size:clamp(68px,14vw,200px);letter-spacing:-.01em}
+h1 span{display:block;font-size:.42em;letter-spacing:.02em;margin-top:6px}
+.tagline{font-family:Anton;font-size:clamp(20px,3vw,32px);color:var(--red);margin:22px 0 14px;text-transform:uppercase}
+.lead{max-width:620px;font-size:17px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 40px}
+.info{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.info b{display:block;font-family:Anton;font-size:26px;color:#fff;font-weight:400}
+.cd{display:flex;gap:10px}.cd div{text-align:center;min-width:52px}.cd b{font-size:30px}
+.marq{overflow:hidden;border-block:1px solid #2a2a2f;margin-top:40px;position:relative;z-index:1;padding:14px 0;white-space:nowrap}
+.marq div{display:inline-block;font-family:Anton;font-size:30px;text-transform:uppercase;color:#fff;animation:m 28s linear infinite}
+.marq span{color:var(--red);margin:0 22px}@keyframes m{to{transform:translateX(-50%)}}
+/* team diagram */
+.tabs{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.tab{padding:10px 20px;border-radius:999px;border:1px solid #3a3a40;background:transparent;color:#fff;font:600 14px Inter;cursor:pointer;transition:.25s}
+.tab.on{background:var(--red);border-color:var(--red)}
+.seats{display:flex;gap:10px;margin:14px 0}
+.seat{flex:1;height:58px;border-radius:12px;border:1px dashed #4a4a50;display:grid;place-items:center;font-family:Anton;font-size:20px;color:#fff;transition:.35s;cursor:pointer}
+.seat.t{background:var(--red);border:1px solid var(--red)}.seat.p{background:#fff;color:#0B0B0D;border:1px solid #fff}.seat.f{border-color:#777}
+ul.ck{list-style:none;padding:0;margin:0}ul.ck li{padding:7px 0 7px 22px;position:relative;border-bottom:1px solid #222}
+ul.ck li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:8px;background:var(--red);border-radius:50%}
+.cross{margin-top:16px;border-left:4px solid var(--red);padding:22px 24px;background:linear-gradient(90deg,rgba(200,16,46,.18),transparent)}
+/* rounds */
+.timer{display:flex;gap:18px;align-items:center}
+.ring{--p:0;width:92px;height:92px;border-radius:50%;background:conic-gradient(var(--red) calc(var(--p)*1%),#2a2a2f 0);display:grid;place-items:center;flex:none}
+.ring b{width:74px;height:74px;border-radius:50%;background:#101012;display:grid;place-items:center;font-family:Anton;font-size:26px;color:#fff;font-weight:400}
+.calc{display:flex;flex-direction:column;gap:10px}
+input[type=range]{width:100%;accent-color:var(--red)}
+.coins{font-family:Anton;font-size:56px;color:#fff;line-height:1}
+.note{border:1px dashed var(--red);border-radius:12px;padding:14px 16px;color:#fff;font-weight:500;margin-top:12px;background:rgba(200,16,46,.08)}
+table{width:100%;border-collapse:collapse;font-size:15px}th{text-align:left;color:var(--mut);font-weight:500;padding:10px;border-bottom:2px solid var(--red)}td{padding:12px 10px}
+.empty{text-align:center;padding:30px;color:var(--mut)}
+/* accordions */
+.acc{border:1px solid #2a2a2f;border-radius:14px;margin-bottom:10px;background:#101012;overflow:hidden}
+.acc button{width:100%;text-align:left;padding:16px 18px;background:none;border:0;color:#fff;font:500 16px Inter;display:flex;gap:12px;align-items:center;cursor:pointer}
+.acc button .n{font-family:Anton;color:var(--red);min-width:26px}
+.acc button .pl{margin-left:auto;font-size:22px;color:var(--red);transition:.3s}
+.acc.open{border-color:rgba(200,16,46,.6)}.acc.open .pl{transform:rotate(45deg)}
+.acc .b{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s}.acc.open .b{grid-template-rows:1fr}
+.acc .b>div{overflow:hidden;padding:0 18px}.acc.open .b>div{padding:0 18px 16px}
+.cat{font-family:Anton;font-size:22px;color:#fff;margin:26px 0 12px;text-transform:uppercase;display:flex;align-items:center;gap:10px}.cat::before{content:"";width:28px;height:3px;background:var(--red)}
+.big{display:grid;place-items:center;text-align:center;padding:50px 20px}
+.big h3{font-size:clamp(26px,4vw,44px)}
+footer{position:relative;z-index:1;margin-top:90px;background:var(--red);color:#fff;border-radius:40px 40px 0 0}
+footer .in{max-width:1180px;margin:auto;padding:50px 20px 24px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px}
+footer h2{color:#fff;font-size:clamp(40px,6vw,76px)}footer h2 span{color:#0B0B0D}
+footer a{color:#fff;font-weight:600;font-size:22px}
+.cp{max-width:1180px;margin:auto;padding:14px 20px 28px;font-size:13px;border-top:1px solid rgba(255,255,255,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.rv{opacity:0;transform:translateY(24px);transition:.7s}.rv.in{opacity:1;transform:none}
+@media(max-width:960px){.links{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:#0B0B0D;border:1px solid #2c2c31;border-radius:20px;padding:16px;gap:12px}.links.open{display:flex}#burger{display:block}nav .btn{display:none}
+.g3,.g4,.info{grid-template-columns:1fr 1fr}.sec{grid-template-columns:1fr}.side{writing-mode:horizontal-tb;transform:none;font-size:22px}footer .in{grid-template-columns:1fr}}
+@media(max-width:620px){.g2,.g3,.g4,.info{grid-template-columns:1fr}.orb{opacity:.35}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+</style>
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <p>My first website hosted on GitHub Pages.</p>
+<div id="glow"></div>
+<nav>
+<a class="logo" href="#home">NEXUS<i>0</i></a>
+<button id="burger" aria-label="Menu">☰</button>
+<div class="links" id="links"></div>
+<a class="btn" href="#register">Register team</a>
+</nav>
+
+<section id="home">
+<div class="orb"></div>
+<p class="mut" style="margin:0 0 10px">Official competition website · NEXUS Club, MITE</p>
+<h1>NEXUS 0<span>The Innovation Arena</span></h1>
+<div class="tagline">Think beyond. Build beyond.</div>
+<p class="lead">NEXUS 0 is a competitive innovation challenge designed to test students’ technical knowledge, creativity, communication, teamwork, strategic thinking and ability to perform under time pressure. Unlike conventional hackathons, it introduces specialized technical and pitching teams, a points-based coding challenge auction and a live leaderboard.</p>
+<div class="cta"><a class="btn" href="#competition">Explore competition</a><a class="btn o" href="#rules">View rules</a><a class="btn o" href="#schedule">View schedule</a><a class="btn o" href="#register">Register your team</a></div>
+<div class="info">
+<div class="card"><p class="mut">Date</p><b>To be announced</b></div>
+<div class="card"><p class="mut">Venue</p><b>To be announced</b></div>
+<div class="card"><p class="mut">Team size</p><b>4–5 members</b></div>
+<div class="card"><p class="mut">Countdown</p><div class="cd" id="cd"><b style="font-size:20px">Starts after the date is announced</b></div></div>
+</div>
+</section>
+<div class="marq"><div id="mq"></div></div>
+
+<section id="about"><div class="sec"><div class="side">About NEXUS</div><div>
+<h2 class="rv">Not another hackathon.</h2>
+<p class="rv" style="margin-top:18px;max-width:760px">NEXUS 0 — THE INNOVATION ARENA is a competitive innovation challenge designed to test students’ technical knowledge, creativity, communication, teamwork, strategic thinking, and ability to perform under time pressure. Instead of simply picking a problem and building a project, every team is split into two specialized subgroups.</p>
+<div class="grid g2 rv" style="margin:20px 0">
+<div class="card red"><h3>Technical Team</h3><p style="margin-top:10px">Responsible for coding, development, and solving technical challenges.</p></div>
+<div class="card"><h3>Pitching Team</h3><p style="margin-top:10px">Responsible for understanding problems, developing solutions, presenting ideas, and managing communication.</p></div></div>
+<div class="grid g3 rv">
+<div class="card"><h3>Pitch → Coins</h3><p style="margin-top:10px" class="mut">Initial pitches earn points. Those points become virtual currency, spent strategically on coding challenges in the auction.</p></div>
+<div class="card"><h3>Surprise challenge</h3><p style="margin-top:10px" class="mut">An unexpected technical challenge, plus a live leaderboard, with a final evaluation to conclude.</p></div>
+<div class="card"><h3>Defend your idea</h3><p style="margin-top:10px" class="mut">Teams must show technical ability and the ability to communicate and defend their ideas.</p></div></div>
+</div></div></section>
+
+<section id="competition"><div class="sec"><div class="side">Competition</div><div>
+<h2 class="rv">Five phases. One arena.</h2>
+<div class="grid g4 rv" style="margin-top:20px" id="phases"></div>
+<p class="mut" style="margin-top:14px">Rounds are numbered as confirmed by the organizers.</p>
+</div></div></section>
+
+<section id="team"><div class="sec"><div class="side">Team Structure</div><div>
+<h2 class="rv">Four or five members. Two subgroups.</h2>
+<p style="margin-top:14px">Pick a team size (minimum 4, maximum 5), then tap a subgroup or the seats to try a split. Every team needs at least two in each.</p><div class="tabs" id="sz"><button class="tab" data-n="4">4 members</button><button class="tab on" data-n="5">5 members</button></div>
+<div class="tabs" id="tt"><button class="tab on" data-k="t">Technical Team</button><button class="tab" data-k="p">Pitching &amp; Communication</button></div>
+<div class="seats" id="seats"></div>
+<p id="seatmsg" class="mut"></p>
+<div class="grid g2" style="margin-top:14px">
+<div class="card" id="tcard"></div>
+<div class="card"><h3>Team allocation</h3><p class="mut" style="margin-top:10px">Teams choose a size of 4 or 5 and decide their own distribution: 2 technical + 2 pitching for four members, or 2 + 3 / 3 + 2 for five. The fifth member, if any, is assigned by the team’s strengths. All members can collaborate during planning and the final presentation.</p></div></div>
+<div class="card cross rv"><h3>Cross-branch &amp; cross-year teams welcome</h3><p style="margin-top:10px">Students can select team members from different engineering branches and different academic years. Teams do not need to be from the same branch or year. NEXUS 0 encourages interdisciplinary collaboration, and registration is not restricted by branch or year.</p></div>
+</div></div></section>
+
+<section id="rounds"><div class="sec"><div class="side">Rounds</div><div>
+<h2 class="rv">Round 1 — The Problem Statement Challenge</h2>
+<div class="grid g2 rv" style="margin-top:20px">
+<div class="card"><span class="tag">Objective</span><p>To test the team’s ability to understand real-world problems and identify practical solutions.</p>
+<ul class="ck"><li>Organizers prepare problem statements across sectors and themes.</li><li>Each team selects a problem statement from the theme selected by the organizers.</li><li>Preparation time: approximately 15–20 minutes, with all team members contributing.</li><li>After preparation, only Pitching Team members present to the judges.</li></ul></div>
+<div class="card"><span class="tag">Presentation format</span>
+<div class="timer"><div class="ring" id="ring"><b id="rt">3:00</b></div><div><b style="color:#fff">3 min pitch</b><br><b style="color:#fff">2 min judges’ questions</b><br><button class="btn" id="go" style="margin-top:10px;padding:8px 16px">Run demo timer</button></div></div>
+<p class="mut" style="margin-top:14px">Demo only. Evaluation details for Round 1 will be announced by the organizers.</p></div>
+</div>
+<div class="card red rv" style="margin-top:16px"><h3>NEXUS Coins = Pitch Score × 100</h3>
+<p style="margin-top:10px">Your pitching performance directly determines your purchasing power in the technical challenge auction. Slide to try it.</p>
+<div class="calc"><input type="range" id="sc" min="0" max="100" value="75" aria-label="Pitch score"><div>Pitch score: <b id="scv">75</b> → <span class="coins" id="coins">7,500</span> coins</div>
+<div class="grid g3" style="margin-top:6px"><div class="card" style="background:#0B0B0D">Team A: 90 → <b>9,000</b></div><div class="card" style="background:#0B0B0D">Team B: 75 → <b>7,500</b></div><div class="card" style="background:#0B0B0D">Team C: 60 → <b>6,000</b></div></div></div></div>
+
+<h2 class="rv" style="margin-top:70px">Round 2 — The NEXUS Coding Challenge Auction</h2>
+<div class="grid g2 rv" style="margin-top:20px">
+<div class="card"><span class="tag">Objective</span><p>To introduce strategic decision-making into the technical competition. Instead of giving every team the same challenge, organizers run a live auction where teams compete to acquire coding challenges using the NEXUS Coins earned in Round 1.</p>
+<ul class="ck"><li>NEXUS Coins balance carries over from Round 1.</li><li>Coding challenge cards are shown as they are revealed.</li><li>Strategic decisions: which challenge to acquire, and at what cost.</li><li>Technical Team members are present during the auction, but the auction itself is done by Pitching Team members only.</li></ul></div>
+<div class="card"><span class="tag">Coding challenges</span><div class="grid g2"><div class="card" style="background:#0B0B0D">Challenge cards<br><b class="r">Coming soon</b></div><div class="card" style="background:#0B0B0D">Your balance<br><b class="r">Set after Round 1</b></div></div>
+<div class="note">Detailed auction instructions will be announced by the NEXUS organizing team.</div></div></div>
+
+<div class="card rv big" style="margin-top:70px;background:radial-gradient(circle at 50% 0,rgba(200,16,46,.35),#101012 70%)"><span class="tag">Surprise technical challenge</span><h3>The Game Changer</h3><p style="max-width:620px;margin-top:12px">Participants face an unexpected technical challenge designed to test problem-solving ability, adaptability and technical knowledge under time pressure.</p><p class="r"><b>Details will be revealed during the competition.</b></p></div>
+
+<h2 class="rv" style="margin-top:70px">Live leaderboard</h2>
+<div class="card rv" style="margin-top:20px;overflow-x:auto"><table><thead><tr><th>Rank</th><th>Team</th><th>Score</th><th>NEXUS Coins</th></tr></thead><tbody id="lb"></tbody></table></div>
+<h2 class="rv" style="margin-top:70px">Final evaluation</h2>
+<div class="card rv" style="margin-top:20px"><p>The competition concludes with an overall evaluation of participating teams. The final ranking and winners will be shown here only after authorized organizers publish the results.</p><div class="note">Judging criteria and results: to be announced by the organizers.</div></div>
+</div></div></section>
+
+<section id="rules"><div class="sec"><div class="side">Rules</div><div>
+<h2 class="rv">Rules &amp; regulations</h2><div id="rl"></div>
+</div></div></section>
+
+<section id="schedule"><div class="sec"><div class="side">Schedule</div><div>
+<h2 class="rv">Official schedule coming soon</h2>
+<div class="card rv" style="margin-top:20px"><p>Timings are not finalized, so none are shown. The timeline will cover:</p>
+<div class="grid g3" id="tl"></div></div>
+</div></div></section>
+
+<section id="announcements"><div class="sec"><div class="side">Announcements</div><div>
+<h2 class="rv">Latest updates</h2>
+<div class="card empty rv" style="margin-top:20px"><b style="color:#fff">No announcements yet.</b><br>Event updates, schedule changes and instructions will appear here with their publication dates.</div>
+</div></div></section>
+
+<section id="faq"><div class="sec"><div class="side">FAQ</div><div>
+<h2 class="rv">Questions, answered</h2><div id="fq" style="margin-top:20px"></div>
+<p class="mut">For anything not listed here: to be announced by the organizers.</p>
+</div></div></section>
+
+<section id="register"><div class="card rv" style="text-align:center;padding:50px 20px;background:radial-gradient(circle at 50% 0,rgba(200,16,46,.3),#101012 70%)"><h2>Register your team</h2><p style="margin:14px auto;max-width:560px">The registration link, deadline and fee have not been announced yet. Team members cannot be changed once registration closes, so finalize your team of four or five now. Call the number below to ask about registration.</p><a class="btn" href="tel:+916361062605">Call 6361062605</a></div></section>
+
+<footer id="contact"><div class="in"><div><h2>Have a doubt?<br><span>Let’s talk.</span></h2><p style="margin-top:14px;max-width:440px">Questions about rules, teams or registration? Reach the NEXUS team directly.</p></div>
+<div style="align-self:end"><p>Contact for clarification</p><a href="tel:+916361062605">6361062605</a><p style="margin-top:16px">NEXUS Club, MITE</p></div></div>
+<div class="cp"><span>© NEXUS Club, MITE · NEXUS 0 — THE INNOVATION ARENA</span><a href="#home" style="font-size:13px">Back to top</a></div></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const nav=[["home","Home"],["about","About NEXUS"],["competition","Competition"],["team","Team Structure"],["rounds","Rounds"],["rules","Rules"],["schedule","Schedule"],["announcements","Announcements"],["faq","FAQ"],["contact","Contact"]];
+$("#links").innerHTML=nav.map(n=>`<a href="#${n[0]}">${n[1]}</a>`).join("");
+$("#burger").onclick=()=>$("#links").classList.toggle("open");
+$("#links").onclick=()=>$("#links").classList.remove("open");
+// glow follows pointer
+addEventListener("pointermove",e=>{const g=$("#glow");g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});
+// marquee
+const mw=["Think beyond","Build beyond","Pitch","Bid","Code","Defend"];
+$("#mq").innerHTML=(mw.map(w=>w+"<span>●</span>").join("")).repeat(8);
+// countdown (set to an ISO date string once official date is confirmed)
+const EVENT_DATE=null;
+if(EVENT_DATE){setInterval(()=>{let d=Math.max(0,new Date(EVENT_DATE)-Date.now()),u=[["d",864e5],["h",36e5],["m",6e4],["s",1e3]];$("#cd").innerHTML=u.map(([l,m])=>{const v=Math.floor(d/m);d-=v*m;return`<div><b>${v}</b><br>${l}</div>`}).join("")},1000)}
+// phases
+const ph=[["Round 1","Problem Statement Challenge","#rounds"],["Round 2","Coding Challenge Auction","#rounds"],["Bonus","Surprise Technical Challenge","#rounds"],["Finale","Final Evaluation","#rounds"]];
+$("#phases").innerHTML=ph.map((p,i)=>`<a href="${p[2]}" class="card ${i?'':'red'}" style="text-decoration:none"><span class="tag">${p[0]}</span><h3>${p[1]}</h3></a>`).join("");
+// team diagram
+let tn=2,TS=5;const info={t:["Technical Team","Minimum 2 members",["Understand the technical requirements.","Solve coding challenges.","Develop the required software or prototype.","Work on implementation and debugging.","Complete the technical tasks acquired during the auction.","Be present during the auction (bidding is done by the Pitching Team)."]],p:["Pitching and Communication Team","Minimum 2 members",["Analyze the assigned problem statement.","Identify the problem and its root cause.","Develop a solution approach.","Present the proposed solution to judges.","Communicate with the technical team.","Support planning, documentation, and final presentation.","Conduct the auction on behalf of the team."]]};
+function seats(){$("#seats").innerHTML=Array.from({length:TS},(_,k)=>k+1).map(i=>`<div class="seat ${i<=tn?'t':'p'}" data-i="${i}">${i<=tn?'T':'P'}</div>`).join("");
+$("#seatmsg").textContent=`${TS} members: ${tn} technical + ${TS-tn} pitching. Valid split.`}
+$("#seats").onclick=e=>{const i=+e.target.dataset.i;if(!i)return;const n=i<=tn?i-1:i;if(n<2||TS-n<2){$("#seatmsg").textContent="Every team needs at least 2 members in each subgroup.";return}tn=n;seats()};
+function tcard(k){const d=info[k];$("#tcard").innerHTML=`<span class="tag">${d[1]}</span><h3>${d[0]}</h3><ul class="ck" style="margin-top:12px">${d[2].map(x=>`<li>${x}</li>`).join("")}</ul>`}
+$("#tt").onclick=e=>{const k=e.target.dataset.k;if(!k)return;document.querySelectorAll("#tt .tab").forEach(b=>b.classList.toggle("on",b===e.target));tcard(k)};
+$("#sz").onclick=e=>{const n=+e.target.dataset.n;if(!n)return;TS=n;tn=2;document.querySelectorAll("#sz .tab").forEach(b=>b.classList.toggle("on",b===e.target));seats()};seats();tcard("t");
+// timer demo
+let iv;$("#go").onclick=()=>{clearInterval(iv);let t=300;const tick=()=>{const pitch=t>120,rem=pitch?t-120:t;$("#rt").textContent=Math.floor(rem/60)+":"+String(rem%60).padStart(2,"0");$("#ring").style.setProperty("--p",pitch?(rem/180)*100:(rem/120)*100);$("#ring").style.filter=pitch?"none":"hue-rotate(-10deg) brightness(1.3)";if(t--<=0){clearInterval(iv);$("#rt").textContent="End"}};tick();iv=setInterval(tick,1000)};
+$("#ring").style.setProperty("--p",100);
+// coins
+$("#sc").oninput=e=>{$("#scv").textContent=e.target.value;$("#coins").textContent=(e.target.value*100).toLocaleString("en-IN")};
+// leaderboard empty state
+$("#lb").innerHTML=`<tr><td colspan="4" class="empty">Scores will appear here once authorized organizers publish verified results.</td></tr>`;
+// rules
+const R={1:"Each team must consist of four or five registered members.",2:"Every team must have at least two technical members and two pitching members.",3:"Team members can belong to different engineering branches and different academic years.",4:"Team members cannot be changed after registration closes.",5:"Teams must work only on the problem statements and challenges assigned to them.",6:"External assistance is prohibited during the competition.",7:"Copying another team’s code or solution is not allowed.",8:"Teams must not interfere with another team’s work.",9:"Internet usage, AI tools, and external libraries must follow the rules announced by organizers. These rules must be the same for all teams.",10:"Teams must submit their work before the deadline.",11:"All technical work must be demonstrated.",12:"Teams must maintain discipline throughout the event.",13:"Any form of cheating or deliberate disruption may result in penalties or disqualification.",14:"Organizers may modify the schedule if necessary.",15:"Judges’ decisions will be final."};
+const cats=[["Team eligibility",[1,3]],["Team formation",[2,4]],["Technical responsibilities",[5,11]],["Pitching responsibilities",[]],["Competition conduct",[6,7,8,12,14,15]],["Submission requirements",[10]],["Internet and AI usage",[9]],["Disqualification and penalties",[13]]];
+const imp=[1,2,4,9,13];
+const mk=(n,q,a,red)=>`<div class="acc" ${red?'style="border-left:4px solid var(--red)"':''}><button aria-expanded="false"><span class="n">${n}</span>${q}<span class="pl">+</span></button><div class="b"><div>${a}</div></div></div>`;
+$("#rl").innerHTML=cats.map(([c,ids])=>`<div class="cat">${c}</div>`+(ids.length?ids.map(i=>mk(i,R[i],imp.includes(i)?"Important rule.":"Applies to all teams.",imp.includes(i))).join(""):`<div class="acc open" style="padding:14px 18px">Only members of the Pitching Team present to the judges in Round 1 and conduct the auction in Round 2 (Technical Team members are present but do not bid). Their role: analyze the problem, find its root cause, build the solution approach, present it, and support planning, documentation and the final presentation.</div>`)).join("")+`<p class="mut" style="margin-top:20px">Red-edged rules are key points. No additional restrictions apply without organizer approval.</p>`;
+// faq
+const F=[["Can students from different branches form a team?","Yes. Students can form interdisciplinary teams with members from different engineering branches."],["Can students from different academic years participate together?","Yes. Team members can belong to different academic years."],["How many members are required per team?","Minimum four and maximum five members."],["How many members should be in the Technical Team?","At least two members."],["How many members should be in the Pitching Team?","At least two members."],["Can all team members contribute during preparation?","Yes. All team members can contribute during the initial preparation phase."],["Who can present during Round 1?","Only members assigned to the Pitching Team."],["How much time is provided for pitching?","Three minutes for the pitch and two minutes for judges’ questions."],["What are NEXUS Coins?","Virtual currency earned from the Round 1 pitching score using the conversion formula: Score × 100."],["What are NEXUS Coins used for?","They are used to acquire coding challenges during the NEXUS Coding Challenge Auction."],["Who takes part in the auction?","Technical Team members are present during the auction, but the auction itself is done by Pitching Team members only."]];
+$("#fq").innerHTML=F.map((f,i)=>mk(i+1,f[0],f[1])).join("");
+// schedule list
+$("#tl").innerHTML=["Registration","Inauguration","Competition briefing","Problem statement challenge","Pitching","Coding challenge auction","Surprise challenge","Final evaluation","Results and prize distribution"].map(s=>`<div class="card" style="padding:16px"><b style="color:#fff">${s}</b><br><span class="r">Time: coming soon</span></div>`).join("");
+// accordion
+document.addEventListener("click",e=>{const b=e.target.closest(".acc button");if(!b)return;const a=b.parentElement;a.classList.toggle("open");b.setAttribute("aria-expanded",a.classList.contains("open"))});
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+// active nav
+const so=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting)document.querySelectorAll(".links a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+x.target.id))}),{rootMargin:"-45% 0px -50% 0px"});
+nav.forEach(n=>{const s=document.getElementById(n[0]);s&&so.observe(s)});
+</script>
 </body>
 </html>
-
