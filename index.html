@@ -1016,7 +1016,7 @@
                 your team</a></div>
         <div class="info">
             <div class="card">
-                <p class="mut">Date</p><b>To be announced</b>
+                <p class="mut">Date</p><b>Thursday at 11:00 AM</b>
             </div>
             <div class="card">
                 <p class="mut">Venue</p><b>To be announced</b>
@@ -1337,8 +1337,96 @@
         // faq
         const F = [["Can students from different branches form a team?", "Yes. Students can form interdisciplinary teams with members from different engineering branches."], ["Can students from different academic years participate together?", "Yes. Team members can belong to different academic years."], ["How many members are required per team?", "Minimum four and maximum five members."], ["How many members should be in the Technical Team?", "At least two members."], ["How many members should be in the Pitching Team?", "At least two members."], ["Can all team members contribute during preparation?", "Yes. All team members can contribute during the initial preparation phase."], ["Who can present during Round 1?", "Only members assigned to the Pitching Team."], ["How much time is provided for pitching?", "Three minutes for the pitch and two minutes for judges’ questions."], ["What are NEXUS Coins?", "Virtual currency earned from the Round 1 pitching score using the conversion formula: Score × 100."], ["What are NEXUS Coins used for?", "They are used to acquire coding challenges during the NEXUS Coding Challenge Auction."], ["Who takes part in the auction?", "Technical Team members are present during the auction, but the auction itself is done by Pitching Team members only."]];
         $("#fq").innerHTML = F.map((f, i) => mk(i + 1, f[0], f[1])).join("");
-        // schedule list
-        $("#tl").innerHTML = ["Registration", "Inauguration", "Competition briefing", "Problem statement challenge", "Pitching", "Coding challenge auction", "Surprise challenge", "Final evaluation", "Results and prize distribution"].map(s => `<div class="card" style="padding:16px"><b style="color:#fff">${s}</b><br><span class="r">Time: coming soon</span></div>`).join("");
+       // schedule list
+       // $("#tl").innerHTML = ["Registration", "Inauguration", "Competition briefing", "Problem statement challenge", "Pitching", "Coding challenge auction", "Surprise challenge", "Final evaluation", "Results and prize distribution"].map(s => `<div class="card" style="padding:16px"><b style="color:#fff">${s}</b><br><span class="r">Time: coming soon</span></div>`).join("");
+
+       const scheduleData = [
+    {
+        title: "Registration",
+        date: "To be announced",
+        time: "9:00 AM – 10:00 AM",
+        venue: "Registration Desk",
+        description: "Team registration and verification."
+    },
+    {
+        title: "Inauguration",
+        date: "To be announced",
+        time: "10:45 AM – 11:00 AM",
+        venue: "Main Auditorium",
+        description: "Welcome address and inauguration."
+    },
+    {
+        title: "Competition briefing",
+        date: "To be announced",
+        time: " 11:00 AM",
+        venue: "Main Auditorium",
+        description: "Explanation of competition rules and rounds."
+    },
+    {
+        title: "Problem statement challenge",
+        date: "To be announced",
+        time: "11:00 AM – 11:20 AM",
+        venue: "Competition Hall",
+        description: "Teams analyse their selected problem statements."
+    },
+    {
+        title: "Pitching",
+        date: "To be announced",
+        time: "11:20 AM – 12:45 PM",
+        venue: "Main Auditorium",
+        description: "Teams present their solutions to the judges."
+    },
+    {
+        title: "Coding challenge auction",
+        date: "To be announced",
+        time: "1:15 PM – 4:00 PM",
+        venue: "Competition Hall",
+        description: "Teams use their NEXUS Coins to acquire challenges."
+    },
+    {
+        title: "Surprise challenge",
+        date: "To be announced",
+        time: "00:00 PM – 00:00 PM",
+        venue: "Computer Lab",
+        description: "An unexpected technical challenge."
+    },
+    {
+        title: "Final evaluation",
+        date: "To be announced",
+        time: "3:30 PM – 4:00 PM",
+        venue: "Main Auditorium",
+        description: "Final assessment by the judges."
+    },
+    {
+        title: "Results and prize distribution",
+        date: "To be announced",
+        time: "4:00 PM onwards",
+        venue: "Main Auditorium",
+        description: "Announcement of winners and prize distribution."
+    }
+];
+
+// Display schedule
+$("#tl").innerHTML = scheduleData.map(event => `
+    <div class="card" style="padding:16px">
+        <b style="color:#fff">${event.title}</b>
+
+        <div style="margin-top:10px;line-height:1.9">
+            <div><span class="r">Date:</span> ${event.date || "To be announced"}</div>
+            <div><span class="r">Time:</span> ${event.time || "To be announced"}</div>
+            <div><span class="r">Venue:</span> ${event.venue || "To be announced"}</div>
+            ${event.description ? `
+                <div style="margin-top:6px;color:var(--mut)">
+                    ${event.description}
+                </div>
+            ` : ""}
+        </div>
+    </div>
+`).join("");
+
+
+
+
         // accordion
         document.addEventListener("click", e => { const b = e.target.closest(".acc button"); if (!b) return; const a = b.parentElement; a.classList.toggle("open"); b.setAttribute("aria-expanded", a.classList.contains("open")) });
         // reveal
